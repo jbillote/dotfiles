@@ -288,6 +288,9 @@ require('lazy').setup({
     lazy = false,
     opts = {
       close_if_last_window = true,
+      window = {
+        width = 25,
+      },
     },
   },
   {
