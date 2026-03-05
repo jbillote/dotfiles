@@ -1,7 +1,3 @@
-if uwsm check may-start; then
-    exec uwsm start hyprland.desktop
-fi
-
 # If you come from bash you might have to change your $PATH.
 # export PATH=$HOME/bin:$HOME/.local/bin:/usr/local/bin:$PATH
 
@@ -159,5 +155,4 @@ esac
 # nnn
 export NNN_FIFO=/tmp/nnn.fifo
 
-. /usr/share/nvm/init-nvm.sh
 alias dotfiles='git --git-dir=$HOME/.dotfiles/ --work-tree=$HOME'
