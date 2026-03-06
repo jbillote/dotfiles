@@ -105,41 +105,6 @@ source $ZSH/oh-my-zsh.sh
 # Example aliases
 # alias zshconfig="mate ~/.zshrc"
 # alias ohmyzsh="mate ~/.oh-my-zsh"
-alias anime="sudo mount /dev/sdb2 ~/anime"
-alias d_drive="sudo mount /dev/sdb1 ~/d"
-
-## Functions
-function ssh_state {
-    if [ -n "$SSh_CONNECTION" ]; then
-        echo "%{$fg[red]%}<%{$fg[white]%}SSH%{$fg[red]%}> "
-    fi
-}
-
-function collapse_pwd {
-    if [[ $(pwd) == $HOME ]]; then
-        echo $(pwd)
-    else    
-        echo $(pwd | sed -e "s,^$HOME,~,")
-    fi
-}
-
-function error_code {
-    if [[ $? == 0 ]]; then
-        echo ""
-    else
-        echo "%{$fg[white]%}<%{$fg[red]%}%?%{$fg[white]%}>%{$reset_color%}"
-fi
-}
-
-last_command='%(?.>>.<<)'
-
-
-## Prompts
-PROMPT='
-  %{$fg[red]%}<%{$fg[white]%}$(collapse_pwd)%{$fg[red]%}> $(ssh_state)
-%{$fg[white]%}$last_command%{$reset_color%} '
-
-RPROMPT='$(error_code)%{$reset_color%}'
 
 # bun completions
 [ -s "/home/jeremy/.bun/_bun" ] && source "/home/jeremy/.bun/_bun"
@@ -161,3 +126,5 @@ export NNN_FIFO=/tmp/nnn.fifo
 
 . /usr/share/nvm/init-nvm.sh
 alias dotfiles='git --git-dir=/home/jeremy/.dotfiles/ --work-tree=/home/jeremy'
+
+eval "$(starship init zsh)"
