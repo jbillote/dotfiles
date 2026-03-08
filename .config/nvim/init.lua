@@ -275,6 +275,12 @@ require('lazy').setup({
     'akinsho/bufferline.nvim',
     version = '*',
     dependencies = 'nvim-tree/nvim-web-devicons',
+    opts = {
+      options = {
+        always_show_bufferline = true,
+        duplicates = 'insert',
+      },
+    },
   },
 
   {
@@ -650,7 +656,7 @@ require('lazy').setup({
         --    https://github.com/pmizio/typescript-tools.nvim
         --
         -- But for many setups, the LSP (`ts_ls`) will work just fine
-        -- ts_ls = {},
+        ts_ls = {},
         --
 
         lua_ls = {
