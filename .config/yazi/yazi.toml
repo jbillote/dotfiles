@@ -1,2 +1,10 @@
 [mgr]
 show_hidden = true
+
+[[opener.feh]]
+run = "feh %s"
+
+[open]
+rules = [
+  { mime = "image/*", use = "feh" }
+]
