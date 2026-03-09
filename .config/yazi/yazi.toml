@@ -2,7 +2,7 @@
 show_hidden = true
 
 [[opener.feh]]
-run = "feh %s"
+run = "feh %s --scale-down"
 
 [open]
 rules = [
