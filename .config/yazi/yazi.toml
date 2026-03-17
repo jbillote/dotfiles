@@ -4,7 +4,11 @@ show_hidden = true
 [[opener.feh]]
 run = "feh %s --scale-down"
 
+[[opener.mpv]]
+run = "mpv %s"
+
 [open]
 rules = [
-  { mime = "image/*", use = "feh" }
+  { mime = "image/*", use = "feh" },
+  { mime = "video/*", use = "mpv" }
 ]
