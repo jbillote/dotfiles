@@ -117,11 +117,7 @@ case ":$PATH:" in
 esac
 # pnpm end
 
-# nnn
-export NNN_FIFO=/tmp/nnn.fifo
-
-. /usr/share/nvm/init-nvm.sh
-alias dotfiles='git --git-dir=/home/jeremy/.dotfiles/ --work-tree=/home/jeremy'
+alias dotfiles='git --git-dir=$HOME/.dotfiles/ --work-tree=$HOME'
 
 eval "$(starship init zsh)"
 
