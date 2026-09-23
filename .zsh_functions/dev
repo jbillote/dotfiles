@@ -7,10 +7,10 @@ dev() {
   tmux rename-window -t "$editor_pane" "$(basename "$cur_dir")"
   
   # Split window vertically
-  tmux split-window -v -p 15 -t "$editor_pane" -c "$cur_dir"
+  tmux split-window -v -l 15% -t "$editor_pane" -c "$cur_dir"
 
   # Split editor pane horizontally
-  ai_pane=$(tmux split-window -h -p 30 -t "$editor_pane" -c "$cur_dir" -P -F '#{pane_id}')
+  ai_pane=$(tmux split-window -h -l 30% -t "$editor_pane" -c "$cur_dir" -P -F '#{pane_id}')
 
   # Open claude in smaller pane
   tmux send-keys -t "$ai_pane" "claude" C-m
