@@ -1,0 +1,23 @@
+dev() {
+  local cur_dir="${PWD}"
+  local editor_pane="$TMUX_PANE"
+  local ai_pane
+
+  # Name current window after base directory
+  tmux rename-window -t "$editor_pane" "$(basename "$cur_dir")"
+  
+  # Split window vertically
+  tmux split-window -v -p 15 -t "$editor_pane" -c "$cur_dir"
+
+  # Split editor pane horizontally
+  ai_pane=$(tmux split-window -h -p 30 -t "$editor_pane" -c "$cur_dir" -P -F '#{pane_id}')
+
+  # Open claude in smaller pane
+  tmux send-keys -t "$ai_pane" "claude" C-m
+
+  # Open neovim in larger pain
+  tmux send-keys -t "$editor_pane" "nvim ." C-m
+
+  # Start with editor in focus
+  tmux select-pane -t "$editor_pane"
+}

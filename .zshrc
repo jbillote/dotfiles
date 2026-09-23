@@ -107,7 +107,7 @@ source $ZSH/oh-my-zsh.sh
 
 # bun
 export BUN_INSTALL="$HOME/.bun"
-export PATH="$BUN_INSTALL/bin:$PATH"
+export PATH="$BUN_INSTALL/bin:$HOME/.local/bin:$PATH"
 
 # pnpm
 export PNPM_HOME="/home/jeremy/.local/share/pnpm"
@@ -120,10 +120,20 @@ esac
 # nnn
 export NNN_FIFO=/tmp/nnn.fifo
 
-alias dotfiles='git --git-dir=$HOME/.dotfiles/ --work-tree=$HOME'
+. /usr/share/nvm/init-nvm.sh
+alias dotfiles='git --git-dir=/home/jeremy/.dotfiles/ --work-tree=/home/jeremy'
 
 eval "$(starship init zsh)"
 
 export NVM_DIR="$HOME/.nvm"
 [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
 [ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
+# Added by flyctl installer
+export FLYCTL_INSTALL="/home/jeremy/.fly"
+export PATH="$FLYCTL_INSTALL/bin:$PATH"
+
+# opencode
+export PATH=/home/jeremy/.opencode/bin:$PATH
+
+fpath=(~/.zsh_functions $fpath)
+autoload -Uz dev
